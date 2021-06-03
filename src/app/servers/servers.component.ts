@@ -7,8 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ServersComponent implements OnInit {
 addNewServer:boolean = false;
-serverCreationStatus: string = "No server was created!";
-serverName:string = "Two Way DataBinding";
+userCreationStatus: string = "";
+userName:string = "";
   constructor() {
     setTimeout(()=>{
       this.addNewServer = true;
@@ -17,10 +17,11 @@ serverName:string = "Two Way DataBinding";
 
   ngOnInit(): void {
   }
-onCreateServer(){
-  this.serverCreationStatus = "Server was created!" + " the server Name is " + this.serverName;
+  onCreateUser(){
+  this.userCreationStatus = "UserName was created!" + " the User Name is " + this.userName;
+  this.userName="";
 }
 onUpdateServer(event:Event){
-this.serverName=(<HTMLInputElement>event.target).value;
+this.userName=(<HTMLInputElement>event.target).value;
 }
 }
