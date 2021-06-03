@@ -1,13 +1,16 @@
-<label>Server Name</label>
+<!-- <label>Server Name</label> -->
 <!-- <input type="text" class="form-control" (input)="onUpdateServer($event)"> -->
-<input type="text"
- class="form-control"
-  [(ngModel)]="serverName"><br>
+<!-- <input type="text" -->
+ <!-- class="form-control" -->
+  <!-- [(ngModel)]="serverName"><br> -->
 <!-- <p>{{serverName}}</p> -->
-<button
- class="btn btn-primary" 
- [disabled]="!addNewServer" 
- (click)="onCreateServer()">Add New Server</button>
-<p>{{serverCreationStatus}}</p>
-<app-server></app-server>
-<app-server></app-server>
+<!-- <button class="btn btn-primary"  [disabled]="!addNewServer"  (click)="onCreateServer()">Add New Server</button> -->
+<!-- <p>{{serverCreationStatus}}</p> -->
+
+<button class="btn btn-danger" (click)="onToggle()">Display Details</button>
+<p *ngIf="showContent">this paragraph contains My password!</p>
+<p *ngFor="let count of logClick" 
+[ngStyle]="{backgroundColor: count >= 5 ? 'blue' : 'transparent'}"
+[ngClass]="{over: count >= 5}">{{count}}</p>
+<!-- <app-server></app-server>
+<app-server></app-server> -->
