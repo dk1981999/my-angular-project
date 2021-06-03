@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-servers',
@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./servers.component.css']
 })
 export class ServersComponent implements OnInit {
+@Input('element') customProperties:{type:string, name:string};
 addNewServer:boolean = false;
 serverCreationStatus: string = "No server was created!";
 serverName:string = "Two Way DataBinding";
