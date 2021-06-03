@@ -29,6 +29,7 @@ logClick= [];
 // }
 onToggle(){
   this.showContent = !this.showContent;
-  return this.logClick.push(this.logClick.length+1);
+  // return this.logClick.push(this.logClick.length+1);
+  return this.logClick.push(new Date());
 }
 }

@@ -9,8 +9,8 @@
 
 <button class="btn btn-danger" (click)="onToggle()">Display Details</button>
 <p *ngIf="showContent">this paragraph contains My password!</p>
-<p *ngFor="let count of logClick" 
-[ngStyle]="{backgroundColor: count >= 5 ? 'blue' : 'transparent'}"
-[ngClass]="{over: count >= 5}">{{count}}</p>
+<p *ngFor="let count of logClick; let i = index" 
+[ngStyle]="{backgroundColor: i >= 4 ? 'blue' : 'transparent'}"
+[ngClass]="{over: i >= 4}">{{count}}</p>
 <!-- <app-server></app-server>
 <app-server></app-server> -->
