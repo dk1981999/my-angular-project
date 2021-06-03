@@ -9,6 +9,8 @@ export class ServersComponent implements OnInit {
 addNewServer:boolean = false;
 serverCreationStatus: string = "No server was created!";
 serverName:string = "Two Way DataBinding";
+serverCreated:boolean = false;
+servers = ['Test Server','Test Server 2'];
   constructor() {
     setTimeout(()=>{
       this.addNewServer = true;
@@ -18,7 +20,9 @@ serverName:string = "Two Way DataBinding";
   ngOnInit(): void {
   }
 onCreateServer(){
-  this.serverCreationStatus = "Server was created!" + " the server Name is " + this.serverName;
+  this.serverCreationStatus = "Server was created! " + " the server Name is " + this.serverName;
+  this.serverCreated = true;
+  this.servers.push(this.serverName);
 }
 onUpdateServer(event:Event){
 this.serverName=(<HTMLInputElement>event.target).value;
