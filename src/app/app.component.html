@@ -3,7 +3,7 @@
         <div class="col-s-12">
             <h3>My name is Dk, and am in the App Component!</h3>
             <hr>
-            <app-servers></app-servers>
+            <app-servers *ngFor="let server of serverElement" [customProperties]="server"></app-servers>
         </div>
     </div>
 </div>
