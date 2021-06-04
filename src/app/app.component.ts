@@ -10,4 +10,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   serverElement = [{type: 'example', name: 'server'}]
+  serverName: string;
+  onServerCreated(serverData: {serverName: string}){
+  this.serverName = serverData.serverName;
+  }
 }
