@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { HighlightDirective } from './highlight.directive';
 import { ServerComponent } from './server/server/server.component';
 import { ServersComponent } from './servers/servers.component';
+import { BetterHighlightDirective } from './better-highlight.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     ServerComponent,
     ServersComponent,
-    HighlightDirective
+    HighlightDirective,
+    BetterHighlightDirective
   ],
   imports: [
     BrowserModule,

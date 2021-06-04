@@ -1,13 +1,19 @@
 <div class="container">
     <div class="row">
         <div class="col-s-12">
-            <h3 highlight>My name is Dk, and am in the App Component!</h3>
+            <h3>My name is Dk, and am in the App Component!</h3>
             <hr>
             <app-servers 
             *ngFor="let server of serverElement"
              [element]="server"
              (customEvent)="onServerCreated($event)">THIS IS EXAMPLE FOR ng-content</app-servers>
              <p style="color: blueviolet;">Custom Event Binding :{{serverName}}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <p highlight> this is Basic highlight attribute!</p>
+            <p appBetterHighlight> this is Better highlight attribute!</p>
         </div>
     </div>
 </div>
