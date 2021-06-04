@@ -7,3 +7,23 @@
         </div>
     </div>
 </div> -->
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <h2>Assignment 4 Practicing Property & Event Binding and View Encapsulation</h2>
+        </div>
+    </div><br><hr>
+    <div class="row">
+        <div class="col-xs-12">
+            <app-game-control (intervalFired)="onIntervalFired($event)">
+                <button class="btn btn-secondary" (click)="onResetGame()">Reset Game</button>&nbsp;
+            </app-game-control>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12" id="reset" #reset>
+            <app-odd *ngFor="let oddNumber of oddNumbers" [number]="oddNumber"></app-odd>
+            <app-even *ngFor="let evenNumber of evenNumbers" [number]="evenNumber"></app-even>
+        </div>
+    </div>
+</div>
