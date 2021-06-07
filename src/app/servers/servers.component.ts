@@ -1,10 +1,12 @@
 import { Component, Input, OnInit, Output, EventEmitter, ViewEncapsulation, ViewChild, ElementRef, OnChanges, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy } from '@angular/core';
+import { LoggingService } from '../logging.service';
 
 @Component({
   selector: 'app-servers',
   templateUrl: './servers.component.html',
   styleUrls: ['./servers.component.css'],
-  encapsulation: ViewEncapsulation.Emulated
+  encapsulation: ViewEncapsulation.Emulated,
+  providers:[LoggingService]
 })
 export class ServersComponent implements 
 OnInit, OnChanges, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked,OnDestroy {
@@ -16,14 +18,13 @@ serverCreationStatus: string = "No server was created!";
 serverName:string = "Two Way DataBinding";
 serverCreated:boolean = false;
 servers = ['Test Server','Test Server 2'];
-  constructor() {
+  constructor(private loggingService: LoggingService) {
     console.log("constructor Called!!!");
     setTimeout(()=>{
       this.addNewServer = true;
     },2000)
    }
-
-  ngOnInit(): void {
+   ngOnInit(): void {
     console.log("ngOnIt Called!!!");
   }
   ngOnChanges(){
@@ -53,6 +54,7 @@ onCreateServer(){
   this.servers.push(this.serverName);
   this.afterCreated.emit({serverName: this.serverName});
   console.log(this.server.nativeElement.value);
+  this.loggingService.loggingConsole(this.serverName);
 
 }
 onUpdateServer(event:Event){
