@@ -19,7 +19,6 @@ export class AppComponent {
     this.submitted = true;
     this.user.email = this.form.value.email;
     this.user.subscription = this.form.value.subscription;
-    
-
+    console.log(this.form);
   }
 }
