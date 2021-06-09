@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 @Component({
@@ -7,37 +7,19 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  defaultValue = "pet";
-  answer:string;
-  genders = ['male','female'];
-  user = {
-    username:'',
-    email:'',
-    secretQuestion:'',
-    answer:'',
-    gender:''
-  }
+  subscriptions = ['Basic', 'Advanced', 'Pro'];
+  selectedSubscription = 'Advanced';
   submitted = false;
-  @ViewChild('form') accessForm: NgForm;
-  suggestUserName() {
-    const suggestedName = 'Superuser';
-    this.accessForm.form.patchValue({
-      userData: {
-        username: suggestedName
-      }
-    });
+  user = {
+    email:'',
+    subscription:''
   }
-  // onSubmit(form: NgForm){
-  //   console.log(form);
-  // }
-  onSubmit(){
+  @ViewChild('form', { static: false }) form: NgForm;
+  onSubmit() {
     this.submitted = true;
-    this.user.username = this.accessForm.value.userData.username;
-    this.user.email = this.accessForm.value.userData.email;
-    this.user.gender = this.accessForm.value.gender;
-    this.user.secretQuestion = this.accessForm.value.secret;
-    this.user.answer = this.accessForm.value.questionAnswer;
+    this.user.email = this.form.value.email;
+    this.user.subscription = this.form.value.subscription;
     
-    this.accessForm.reset();
+
   }
 }
